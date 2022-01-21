@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts"
+    "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
+    "data": "ts-node-dev --respawn --pretty --transpile-only data/database.ts",
+    "service": "ts-node-dev --respawn --pretty --transpile-only src/services/item.service.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +15,10 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "helmet": "^4.6.0"
+    "helmet": "^4.6.0",
+    "inversify": "^6.0.1",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
