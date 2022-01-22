@@ -16,4 +16,16 @@ export default class ItemController {
             res.status(500).send(e.message);
         }
     }
+
+    public async create(req: Request, res: Response){
+        try {
+            const item: ItemModel = req.body;
+    
+            const newItem = await this.itemService.create(item);
+    
+            res.status(201).json(newItem);
+        } catch (e: any) {
+            res.status(500).send(e.message);
+        }
+    }
 }

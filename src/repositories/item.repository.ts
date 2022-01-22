@@ -23,27 +23,27 @@ export default class ItemRepository implements IItemRepository {
         });
     }
 
-    // public async create(data: Partial<ItemModel>): Promise<boolean> {
-    //     let params: any[] = [];
-    //     let fields: string[] = [];
-    //     Object.keys(data).forEach((item) => {
-    //         fields.push(item);
-    //         params.push(data[item as keyof Partial<ItemModel>]);
-    //     });
-    //     return new Promise((resolve) => {
-    //         db.run(
-    //             `INSERT INTO ${this.tableName} (${fields.join(
-    //                 ","
-    //             )}) VALUES (${new Array(fields.length).fill("?")})`,
-    //             params,
-    //             (err: Error) => {
-    //                 if (err) {
-    //                     throw new InternalError(err.message);
-    //                 } else {
-    //                     resolve(true);
-    //                 }
-    //             }
-    //         );
-    //     });
-    // }
+    public async create(data: Partial<ItemModel>): Promise<boolean> {
+        let params: any[] = [];
+        let fields: string[] = [];
+        Object.keys(data).forEach((item) => {
+            fields.push(item);
+            params.push(data[item as keyof Partial<ItemModel>]);
+        });
+        return new Promise((resolve) => {
+            db.run(
+                `INSERT INTO ${this.tableName} (${fields.join(
+                    ","
+                )}) VALUES (${new Array(fields.length).fill("?")})`,
+                params,
+                (err: Error) => {
+                    if (err) {
+                        throw new InternalError(err.message);
+                    } else {
+                        resolve(true);
+                    }
+                }
+            );
+        });
+    }
 }

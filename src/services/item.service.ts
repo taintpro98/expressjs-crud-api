@@ -14,4 +14,8 @@ export default class ItemService implements IItemService {
     public async getAll(): Promise<ItemModel[]> {
         return await this.itemRepository.getAll();
     }
+
+    public async create(item: Partial<ItemModel>): Promise<boolean>{
+        return await this.itemRepository.create(item);
+    }
 }
