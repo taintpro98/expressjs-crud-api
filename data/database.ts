@@ -9,7 +9,7 @@ let db = new sqlite3.Database('./data/sample.db', (err: any) => {
 
 export default db;
 
-// db.run("INSERT INTO items (name, price, description, image) VALUES ('Pizza', 299, 'Cheesy', 'https://cdn.auth0.com/blog/whatabyte/pizza-sm.png')");
+db.run("INSERT INTO items (name, price, description, image) VALUES ('Pizza', 299, 'Cheesy', 'https://cdn.auth0.com/blog/whatabyte/pizza-sm.png')");
 // db.serialize(function () {
 //     db.all("select name from sqlite_master where type='table'", function (err: any, tables: any) {
 //         console.log(tables);

@@ -20,11 +20,19 @@ export default class ItemController {
     public async create(req: Request, res: Response){
         try {
             const item: ItemModel = req.body;
-    
-            const newItem = await this.itemService.create(item);
-    
-            res.status(201).json(newItem);
+            await this.itemService.create(item);
+            res.status(201).json(true);
         } catch (e: any) {
+            res.status(500).send(e.message);
+        }
+    }
+
+    public async delete(req: Request, res: Response){
+        try{
+            const id: number = parseInt(req.params.id, 10);
+            await this.itemService.deleteById(id);
+            res.status(200).json(true);
+        } catch (e: any){
             res.status(500).send(e.message);
         }
     }

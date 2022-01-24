@@ -38,12 +38,28 @@ export default class ItemRepository implements IItemRepository {
                 params,
                 (err: Error) => {
                     if (err) {
-                        throw new InternalError(err.message);
+                        throw new Error(err.message);
                     } else {
                         resolve(true);
                     }
                 }
             );
         });
+    }
+
+    public async deleteById(id: number): Promise<boolean> {
+
+        return new Promise((resolve) => {
+            db.run(`DELETE FROM ${this.tableName} WHERE id=?`,
+                id,
+                (err: Error) => {
+                    if (err) {
+                        throw new Error(err.message);
+                    } else {
+                        resolve(true);
+                    }
+                }
+            );
+        })
     }
 }

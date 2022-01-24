@@ -18,4 +18,8 @@ export default class ItemService implements IItemService {
     public async create(item: Partial<ItemModel>): Promise<boolean>{
         return await this.itemRepository.create(item);
     }
+
+    public async deleteById(id: number): Promise<boolean> {
+        return await this.itemRepository.deleteById(id);
+    }
 }

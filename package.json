@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
     "data": "ts-node-dev --respawn --pretty --transpile-only data/database.ts",
-    "service": "ts-node-dev --respawn --pretty --transpile-only src/services/item.service.ts"
+    "test": "ts-node-dev --respawn --pretty --transpile-only src/test.ts"
   },
   "keywords": [],
   "author": "",
